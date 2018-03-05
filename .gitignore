@@ -1,7 +1,5 @@
 .idea/*.xml
 .idea/libraries/*.xml
-*.xml
-*.xml
 .idea
 *.csstarget/
 *.css
