@@ -1,13 +1,12 @@
 package stepDefinitions;
 
-import cucumber.api.PendingException;
+
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.ios.IOSDriver;
 import io.appium.java_client.remote.MobileCapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
-
 import java.net.URL;
 import java.util.concurrent.TimeUnit;
 
@@ -24,17 +23,18 @@ public class userQuoteDetails {
         capabilities.setCapability(MobileCapabilityType.PLATFORM_NAME, "iOS");
         capabilities.setCapability(MobileCapabilityType.PLATFORM_VERSION, "11.0");
         capabilities.setCapability(MobileCapabilityType.BROWSER_NAME, "Safari");
-        capabilities.setCapability(MobileCapabilityType.DEVICE_NAME, "iPhone 6");
+        capabilities.setCapability(MobileCapabilityType.UDID, "29637938-65BD-4EB6-B943-2E89D18B0BA0");
+        capabilities.setCapability(MobileCapabilityType.DEVICE_NAME, "iPhone X");
 
-        driver = new IOSDriver(new URL("http://127.0.0.1:4723/wd/hub"),
-                capabilities);
+        driver =new IOSDriver(new URL("http://localhost:4723/wd/hub"),capabilities);
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
     }
 
-    @Given("^enters the quote details$")
+    @And("^enters the quote details$")
     public void enters_the_quote_details() throws Throwable {
         // Write code here that turns the phrase above into concrete actions
         driver.get("https://stage.qantasassure.com/health-insurance/quote");
+        driver.quit();
     }
 }
 
